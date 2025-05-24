@@ -12,9 +12,11 @@ jobs:
     steps:
       - uses: superfly/flyctl-actions/setup-flyctl@v1
 
+      - run: echo "Has token? ${{ secrets.FLY_API_TOKEN != '' }}"
+
       - name: Fly auth
         env:
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}   # repository secret
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
         run: flyctl auth login --access-token "$FLY_API_TOKEN"
 
       - name: Start scraper machine
