@@ -2,23 +2,22 @@ name: Nightly Tennis-Court Scraper
 
 on:
   schedule:
-    # 09:45 Pacific Daylight  = 16:45 UTC
-    - cron: '52 16 * * *'
+    - cron: '02 19 * * *'          # 09 : 52 Pacific
   workflow_dispatch:
 
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - name: Install Flyctl
+      - name: Install flyctl
         run: |
           curl -L https://fly.io/install.sh | sh
           echo "$HOME/.fly/bin" >> "$GITHUB_PATH"
 
-      - name: Fly auth
+      - name: Authenticate to Fly
         env:
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-        run: echo "$FLY_API_TOKEN" | flyctl auth token
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}   # Deploy token you created
+        run: flyctl auth login --access-token "$FLY_API_TOKEN"
 
       - name: Start scraper machine
         run: flyctl machine start e2867d5f615e38
