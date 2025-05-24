@@ -2,35 +2,26 @@ name: Nightly Tennis-Court Scraper
 
 on:
   schedule:
-    # 09:52 Pacific Daylight  = 16:52 UTC
-    - cron: '52 16 * * *'
+    - cron: '52 16 * * *'      # 09:52 PDT
   workflow_dispatch:
 
 jobs:
   run:
     runs-on: ubuntu-latest
-
     steps:
-      # ---------- install flyctl (2 s) ----------
       - uses: superfly/flyctl-actions/setup-flyctl@v1
 
-      # ---------- confirm secret arrives ----------
       - name: Debug token length
         env:
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}   # repository secret
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
         run: |
-          echo "Token length: ${#FLY_API_TOKEN:-0}"
-          if [ -z "$FLY_API_TOKEN" ]; then
-            echo "FLY_API_TOKEN is EMPTY – fix repository secret" >&2
-            exit 1
-          fi
+          echo "Token length: ${#FLY_API_TOKEN}"
+          [ -z "$FLY_API_TOKEN" ] && { echo "FLY_API_TOKEN is EMPTY"; exit 1; }
 
-      # ---------- non-interactive login ----------
       - name: Fly auth
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
         run: flyctl auth login --access-token "$FLY_API_TOKEN"
 
-      # ---------- start the stopped machine ----------
       - name: Start scraper machine
         run: flyctl machine start e2867d5f615e38 --wait=false
