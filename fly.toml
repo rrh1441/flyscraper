@@ -1,0 +1,16 @@
+app = "flyscraper"
+primary_region = "sea"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[processes]
+  app = "bash /app/run_spider.sh"
+
+[experimental]
+  auto_rollback = true
+
+[[vm]]
+  memory = "1gb"
+  cpu_kind = "shared"
+  cpus = 1
