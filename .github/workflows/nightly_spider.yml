@@ -2,19 +2,20 @@ name: Nightly Tennis-Court Scraper
 
 on:
   schedule:
-    - cron: '52 16 * * *'          # 09:52 Pacific
+    # 09:52 Pacific Daylight = 16:52 UTC
+    - cron: '52 16 * * *'
   workflow_dispatch:
 
 jobs:
   run:
     runs-on: ubuntu-latest
     env:
-      FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}   # ← your deploy token
+      FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}   # your deploy token
     steps:
       - uses: superfly/flyctl-actions/setup-flyctl@v1
 
-      - name: Confirm token present
+      - name: Verify token is present
         run: echo "Has token? ${{ secrets.FLY_API_TOKEN != '' }}"
 
       - name: Start scraper machine
-        run: flyctl --access-token "$FLY_API_TOKEN" machine start e2867d5f615e38 --wait=false
+        run: flyctl --access-token "$FLY_API_TOKEN" machine start e2867d5f615e38
