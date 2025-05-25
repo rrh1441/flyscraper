@@ -1,17 +1,22 @@
-#!/bin/bash
-set -x  # print each command (debug mode)
+#!/usr/bin/env bash
+set -euo pipefail          # fail on first error
+set -x                     # echo commands (debug)
 
-# 1) Change to the project root (where scrapy.cfg is located)
-cd /home/rrh1441/courtscraper_cloud/CurrentScraper || {
-  echo "Error: cannot cd to /home/rrh1441/courtscraper_cloud/CurrentScraper"
-  exit 1
-}
+ROOT=/home/rrh1441/courtscraper_cloud/CurrentScraper
+VENV=/home/rrh1441/scraper_trigger/venv
+LOG_DIR="$ROOT/logs"
+LOG_FILE="$LOG_DIR/cron.log"
 
-# 2) Activate the known virtual environment
-source /home/rrh1441/scraper_trigger/venv/bin/activate
+mkdir -p "$LOG_DIR"
+cd "$ROOT"
 
-# 3) Make sure logs directory exists
-mkdir -p /home/rrh1441/courtscraper_cloud/CurrentScraper/logs
+source "$VENV/bin/activate"
 
-# 4) Run the spider, appending logs to cron.log in your logs directory
-/home/rrh1441/scraper_trigger/venv/bin/scrapy crawl AncSpider --loglevel=DEBUG >> /home/rrh1441/courtscraper_cloud/CurrentScraper/logs/cron.log 2>&1
+iso_now() { date -Is; }
+
+echo "[$(iso_now)] 🚀  Spider starting…" | tee -a "$LOG_FILE"
+
+# Scrapy → stdout **and** log file
+scrapy crawl AncSpider --loglevel=INFO 2>&1 | tee -a "$LOG_FILE"
+
+echo "[$(iso_now)] ✅  Finished (exit $?)" | tee -a "$LOG_FILE"
