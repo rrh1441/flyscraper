@@ -3,6 +3,7 @@ import json
 import os
 import re
 import scrapy
+import time
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 from supabase import create_client
@@ -24,21 +25,42 @@ class SupabaseWriter:
         print(f"Initializing SupabaseWriter with URL: {url}, table: {table_name}")
         self.supabase = create_client(url, key)
         self.table_name = table_name
+        self.write_success_count = 0
+        self.write_failure_count = 0
 
     def write_record(self, record):
-        try:
-            print(f"Attempting to write record to Supabase: {record}")
-            data = (
-                self.supabase
-                .table(self.table_name)
-                .upsert(record, on_conflict="id")       # real UPSERT
-                .execute()
-            )
-            print(f"Successfully wrote record: {record['id']}")
-            print(f"Supabase response: {data}")
-        except Exception as e:
-            print(f"Error writing to Supabase: {e}")
-            print(f"Error type: {type(e)}")
+        max_retries = 3
+        for attempt in range(max_retries):
+            try:
+                print(f"📝 Writing record {record['id']} (attempt {attempt + 1}/{max_retries})")
+                
+                data = (
+                    self.supabase
+                    .table(self.table_name)
+                    .upsert(record, on_conflict="id")       # real UPSERT
+                    .execute()
+                )
+                
+                self.write_success_count += 1
+                print(f"✅ SUCCESS #{self.write_success_count}: {record['id']}")
+                print(f"📊 Stats: {self.write_success_count} success, {self.write_failure_count} failures")
+                return  # Success - exit retry loop
+                
+            except Exception as e:
+                print(f"❌ Error writing record {record['id']} (attempt {attempt + 1}): {e}")
+                print(f"Error type: {type(e)}")
+                
+                if attempt < max_retries - 1:
+                    print(f"Retrying in 2 seconds...")
+                    time.sleep(2)
+                else:
+                    # Final attempt failed
+                    self.write_failure_count += 1
+                    print(f"💀 FINAL FAILURE #{self.write_failure_count}: {record['id']}")
+                    print(f"📊 Stats: {self.write_success_count} success, {self.write_failure_count} failures")
+                    
+                    # CRITICAL: Re-raise the exception so Scrapy knows it failed
+                    raise
 
 
 # --------------------------------------------------------------------------
@@ -66,7 +88,7 @@ class AncSpider(scrapy.Spider):
         self.tomorrow = (datetime.now(self._pt) + timedelta(days=1)).strftime("%Y-%m-%d")
         self.db = SupabaseWriter(
             url="https://mqoqdddzrwvonklsprgb.supabase.co",
-            table_name="tennis_courts_fly"
+            table_name="tennis_courts"  # Now writing to production table
         )
 
     # ----------------------------------------------------------------------
@@ -249,5 +271,6 @@ class AncSpider(scrapy.Spider):
         item['last_updated'] = datetime.now(self._pt).isoformat()
         item['canonical_addr'] = canonicalise(item['address'])
 
+        # This will now properly fail if Supabase write fails
         self.db.write_record(item)
         yield item
