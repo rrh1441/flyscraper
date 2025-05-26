@@ -1,9 +1,10 @@
+# .github/workflows/nightly_spider.yml
 name: Nightly Tennis-Court Scraper
 
 on:
   schedule:
-    # 10:05 AM Pacific (17:05 UTC)
-    - cron: '05 17 * * *'
+    # 10:05 AM Pacific (17:05 UTC)  →  minute hour dom month dow
+    - cron: '12 17 * * *'
   workflow_dispatch:
 
 jobs:
@@ -13,26 +14,35 @@ jobs:
       FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
     steps:
+      # Install Fly.io CLI
       - uses: superfly/flyctl-actions/setup-flyctl@v1
 
+      # Quick sanity-check: secret present?
       - name: Verify token is present
         run: echo "Has token? ${{ secrets.FLY_API_TOKEN != '' }}"
 
+      # Start the scraper VM, then poll until it stops (15-minute timeout)
       - name: Run scraper and wait for completion
         run: |
-          # start
-          flyctl --access-token "$FLY_API_TOKEN" machine start e2867d5f615e38 \
-                 --app flyscraper
+          # Start the machine
+          flyctl --access-token "$FLY_API_TOKEN" \
+                 machine start e2867d5f615e38 --app flyscraper
 
-          # poll status (JSON flag must be global)
+          # Poll every 30 s, up to 15 minutes (30 × 30 s)
           for i in {1..30}; do
-            status=$(flyctl --access-token "$FLY_API_TOKEN" --json \
-                    machine status e2867d5f615e38 --app flyscraper | jq -r '.state')
+            # Capture the current state (parse the plain-text output)
+            status=$(flyctl --access-token "$FLY_API_TOKEN" \
+                     machine status e2867d5f615e38 --app flyscraper \
+                     | awk '/State:/ {print tolower($2)}')
             echo "Machine status: $status"
 
-            [[ "$status" == "stopped" ]] && echo "Machine completed" && exit 0
+            if [ "$status" = "stopped" ]; then
+              echo "Machine completed successfully"
+              exit 0
+            fi
+
             sleep 30
           done
 
-          echo "Timeout: Machine did not complete within 15 minutes" >&2
+          echo "Timeout: Machine did not complete within 15 minutes"
           exit 1
