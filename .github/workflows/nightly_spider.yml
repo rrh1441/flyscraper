@@ -3,7 +3,7 @@ name: Nightly Tennis-Court Scraper
 on:
   schedule:
     # 23:45 Pacific Daylight = 06:45 UTC
-    - cron: '06 40 * * *'
+    - cron: '05 14 * * *'
   workflow_dispatch:
 
 jobs:
