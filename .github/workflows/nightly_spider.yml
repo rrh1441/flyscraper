@@ -1,36 +1,38 @@
 name: Nightly Tennis-Court Scraper
+
 on:
- schedule:
-   # 23:45 Pacific Daylight = 06:45 UTC
-   - cron: '05 17 * * *'
- workflow_dispatch:
+  schedule:
+    # 10:05 AM Pacific (17:05 UTC)
+    - cron: '05 17 * * *'
+  workflow_dispatch:
+
 jobs:
- run:
-   runs-on: ubuntu-latest
-   env:
-     FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-   steps:
-     - uses: superfly/flyctl-actions/setup-flyctl@v1
-     - name: Verify token is present
-       run: echo "Has token? ${{ secrets.FLY_API_TOKEN != '' }}"
-     - name: Run scraper and wait for completion
-       run: |
-         flyctl --access-token "$FLY_API_TOKEN" machine start e2867d5f615e38 --app flyscraper
-         
-         # Wait for the machine to finish (poll every 30 seconds, max 15 minutes)
-         for i in {1..30}; do
-           status=$(flyctl --access-token "$FLY_API_TOKEN" machine status e2867d5f615e38 --app flyscraper --json | jq -r '.state')
-           echo "Machine status: $status"
-           
-           if [ "$status" = "stopped" ]; then
-             echo "Machine completed successfully"
-             break
-           fi
-           
-           if [ $i -eq 30 ]; then
-             echo "Timeout: Machine did not complete within 15 minutes"
-             exit 1
-           fi
-           
-           sleep 30
-         done
+  run:
+    runs-on: ubuntu-latest
+    env:
+      FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
+    steps:
+      - uses: superfly/flyctl-actions/setup-flyctl@v1
+
+      - name: Verify token is present
+        run: echo "Has token? ${{ secrets.FLY_API_TOKEN != '' }}"
+
+      - name: Run scraper and wait for completion
+        run: |
+          # start
+          flyctl --access-token "$FLY_API_TOKEN" machine start e2867d5f615e38 \
+                 --app flyscraper
+
+          # poll status (JSON flag must be global)
+          for i in {1..30}; do
+            status=$(flyctl --access-token "$FLY_API_TOKEN" --json \
+                    machine status e2867d5f615e38 --app flyscraper | jq -r '.state')
+            echo "Machine status: $status"
+
+            [[ "$status" == "stopped" ]] && echo "Machine completed" && exit 0
+            sleep 30
+          done
+
+          echo "Timeout: Machine did not complete within 15 minutes" >&2
+          exit 1
