@@ -1,0 +1,105 @@
+[2m2025-05-24T16:22:21Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]Successfully prepared image registry.fly.io/flyscraper:deployment-01JW1HHMJ3ZYYJMQP03Q6PWG65 (12.595679197s)
+[2m2025-05-24T16:22:23Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]Configuring firecracker
+[2m2025-05-24T19:34:41Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m]2025-05-24T19:34:41.687290924 [01JW1HM420CN8H69E905HZ5Y9A:main] Running Firecracker v1.7.0
+[2m2025-05-24T19:34:42Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Starting init (commit: a1a45272)...
+[2m2025-05-24T19:34:42Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Preparing to run: `bash /app/run_spider.sh` as root
+[2m2025-05-24T19:34:42Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m [fly api proxy] listening at /.fly/api
+[2m2025-05-24T19:34:42Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]Machine started in 1.227s
+[2m2025-05-24T19:34:43Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m]2025/05/24 19:34:43 INFO SSH listening listen_address=[fdaa:16:4003:a7b:2dbb:7d9b:bc04:2]:22
+[2m2025-05-24T19:42:20Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Main child exited normally with code: 0
+[2m2025-05-24T19:42:20Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Starting clean up.
+[2m2025-05-24T19:42:20Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][33m WARN[0m could not unmount /rootfs: EINVAL: Invalid argument
+[2m2025-05-24T19:42:20Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][  458.530607] reboot: Restarting system
+[2m2025-05-24T19:42:20Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]machine exited with exit code 0, not restarting
+[2m2025-05-25T04:51:48Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m]2025-05-25T04:51:48.097423786 [01JW1HM420CN8H69E905HZ5Y9A:main] Running Firecracker v1.7.0
+[2m2025-05-25T04:51:49Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Starting init (commit: a1a45272)...
+[2m2025-05-25T04:51:49Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Preparing to run: `bash /app/run_spider.sh` as root
+[2m2025-05-25T04:51:49Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m [fly api proxy] listening at /.fly/api
+[2m2025-05-25T04:51:49Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]Machine started in 1.164s
+[2m2025-05-25T04:51:49Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m]2025/05/25 04:51:49 INFO SSH listening listen_address=[fdaa:16:4003:a7b:2dbb:7d9b:bc04:2]:22
+[2m2025-05-25T04:59:12Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Main child exited normally with code: 0
+[2m2025-05-25T04:59:12Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Starting clean up.
+[2m2025-05-25T04:59:12Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][33m WARN[0m could not unmount /rootfs: EINVAL: Invalid argument
+[2m2025-05-25T04:59:12Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][  444.497413] reboot: Restarting system
+[2m2025-05-25T04:59:12Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]machine exited with exit code 0, not restarting
+[2m2025-05-25T14:20:15Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m]2025-05-25T14:20:15.566462419 [01JW1HM420CN8H69E905HZ5Y9A:main] Running Firecracker v1.7.0
+[2m2025-05-25T14:20:16Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Starting init (commit: a1a45272)...
+[2m2025-05-25T14:20:16Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Preparing to run: `bash /app/run_spider.sh` as root
+[2m2025-05-25T14:20:16Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m [fly api proxy] listening at /.fly/api
+[2m2025-05-25T14:20:16Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]Machine started in 1.158s
+[2m2025-05-25T14:20:16Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m]2025/05/25 14:20:16 INFO SSH listening listen_address=[fdaa:16:4003:a7b:2dbb:7d9b:bc04:2]:22
+[2m2025-05-25T14:27:39Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Main child exited normally with code: 0
+[2m2025-05-25T14:27:39Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Starting clean up.
+[2m2025-05-25T14:27:39Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][33m WARN[0m could not unmount /rootfs: EINVAL: Invalid argument
+[2m2025-05-25T14:27:39Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][  443.491168] reboot: Restarting system
+[2m2025-05-25T14:27:39Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]machine exited with exit code 0, not restarting
+[2m2025-05-25T15:21:08Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m]2025-05-25T15:21:08.967578582 [01JW1HM420CN8H69E905HZ5Y9A:main] Running Firecracker v1.7.0
+[2m2025-05-25T15:21:09Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Starting init (commit: a1a45272)...
+[2m2025-05-25T15:21:10Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Preparing to run: `bash /app/run_spider.sh` as root
+[2m2025-05-25T15:21:10Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m [fly api proxy] listening at /.fly/api
+[2m2025-05-25T15:21:10Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]Machine started in 1.242s
+[2m2025-05-25T15:21:10Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m]2025/05/25 15:21:10 INFO SSH listening listen_address=[fdaa:16:4003:a7b:2dbb:7d9b:bc04:2]:22
+[2m2025-05-25T15:28:37Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Main child exited normally with code: 0
+[2m2025-05-25T15:28:37Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Starting clean up.
+[2m2025-05-25T15:28:37Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][33m WARN[0m could not unmount /rootfs: EINVAL: Invalid argument
+[2m2025-05-25T15:28:37Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][  448.507726] reboot: Restarting system
+[2m2025-05-25T15:28:37Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]machine exited with exit code 0, not restarting
+[2m2025-05-25T15:34:21Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m]2025-05-25T15:34:21.950699913 [01JW1HM420CN8H69E905HZ5Y9A:main] Running Firecracker v1.7.0
+[2m2025-05-25T15:34:22Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Starting init (commit: a1a45272)...
+[2m2025-05-25T15:34:22Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Preparing to run: `bash /app/run_spider.sh` as root
+[2m2025-05-25T15:34:23Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m [fly api proxy] listening at /.fly/api
+[2m2025-05-25T15:34:23Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]Machine started in 1.231s
+[2m2025-05-25T15:34:23Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m]2025/05/25 15:34:23 INFO SSH listening listen_address=[fdaa:16:4003:a7b:2dbb:7d9b:bc04:2]:22
+[2m2025-05-25T15:41:45Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Main child exited normally with code: 0
+[2m2025-05-25T15:41:45Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Starting clean up.
+[2m2025-05-25T15:41:45Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][33m WARN[0m could not unmount /rootfs: EINVAL: Invalid argument
+[2m2025-05-25T15:41:45Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][  443.493821] reboot: Restarting system
+[2m2025-05-25T15:41:45Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]machine exited with exit code 0, not restarting
+[2m2025-05-25T15:49:31Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m]2025-05-25T15:49:31.810727046 [01JW1HM420CN8H69E905HZ5Y9A:main] Running Firecracker v1.7.0
+[2m2025-05-25T15:49:32Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Starting init (commit: a1a45272)...
+[2m2025-05-25T15:49:32Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Preparing to run: `bash /app/run_spider.sh` as root
+[2m2025-05-25T15:49:32Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m [fly api proxy] listening at /.fly/api
+[2m2025-05-25T15:49:32Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]Machine started in 1.186s
+[2m2025-05-25T15:49:33Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m]2025/05/25 15:49:33 INFO SSH listening listen_address=[fdaa:16:4003:a7b:2dbb:7d9b:bc04:2]:22
+[2m2025-05-25T15:56:57Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Main child exited normally with code: 0
+[2m2025-05-25T15:56:57Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Starting clean up.
+[2m2025-05-25T15:56:57Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][33m WARN[0m could not unmount /rootfs: EINVAL: Invalid argument
+[2m2025-05-25T15:56:57Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][  445.496636] reboot: Restarting system
+[2m2025-05-25T15:56:57Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]machine exited with exit code 0, not restarting
+[2m2025-05-25T16:05:51Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m]2025-05-25T16:05:51.596026328 [01JW1HM420CN8H69E905HZ5Y9A:main] Running Firecracker v1.7.0
+[2m2025-05-25T16:05:52Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Starting init (commit: a1a45272)...
+[2m2025-05-25T16:05:52Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Preparing to run: `bash /app/run_spider.sh` as root
+[2m2025-05-25T16:05:52Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m [fly api proxy] listening at /.fly/api
+[2m2025-05-25T16:05:52Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]Machine started in 1.193s
+[2m2025-05-25T16:05:53Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m]2025/05/25 16:05:53 INFO SSH listening listen_address=[fdaa:16:4003:a7b:2dbb:7d9b:bc04:2]:22
+[2m2025-05-25T16:13:19Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Main child exited normally with code: 0
+[2m2025-05-25T16:13:19Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Starting clean up.
+[2m2025-05-25T16:13:19Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][33m WARN[0m could not unmount /rootfs: EINVAL: Invalid argument
+[2m2025-05-25T16:13:19Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][  447.523140] reboot: Restarting system
+[2m2025-05-25T16:13:19Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]machine exited with exit code 0, not restarting
+[2m2025-05-25T16:14:54Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m]2025-05-25T16:14:54.875748343 [01JW1HM420CN8H69E905HZ5Y9A:main] Running Firecracker v1.7.0
+[2m2025-05-25T16:14:55Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Starting init (commit: a1a45272)...
+[2m2025-05-25T16:14:55Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Preparing to run: `bash /app/run_spider.sh` as root
+[2m2025-05-25T16:14:55Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m [fly api proxy] listening at /.fly/api
+[2m2025-05-25T16:14:56Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]Machine started in 1.246s
+[2m2025-05-25T16:14:56Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m]2025/05/25 16:14:56 INFO SSH listening listen_address=[fdaa:16:4003:a7b:2dbb:7d9b:bc04:2]:22
+[2m2025-05-25T16:19:40Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m]2025/05/25 16:19:40 INFO New SSH session email=rrh1441@gmail.com verified=true
+[2m2025-05-25T16:22:20Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Main child exited normally with code: 0
+[2m2025-05-25T16:22:20Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Starting clean up.
+[2m2025-05-25T16:22:20Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][33m WARN[0m could not unmount /rootfs: EINVAL: Invalid argument
+[2m2025-05-25T16:22:20Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][  445.500569] reboot: Restarting system
+[2m2025-05-25T16:22:20Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]machine exited with exit code 0, not restarting
+[2m2025-05-25T16:27:43Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]Pulling container image registry.fly.io/flyscraper:deployment-01JW1HHMJ3ZYYJMQP03Q6PWG65
+[2m2025-05-25T16:27:44Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]Successfully prepared image registry.fly.io/flyscraper:deployment-01JW1HHMJ3ZYYJMQP03Q6PWG65 (514.226499ms)
+[2m2025-05-25T16:27:45Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]Configuring firecracker
+[2m2025-05-25T16:35:06Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m]2025-05-25T16:35:06.225503789 [01JW44B1QA4045NQ74P18EXW05:main] Running Firecracker v1.7.0
+[2m2025-05-25T16:35:07Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Starting init (commit: a1a45272)...
+[2m2025-05-25T16:35:07Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Preparing to run: `bash /app/run_spider.sh` as root
+[2m2025-05-25T16:35:07Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m [fly api proxy] listening at /.fly/api
+[2m2025-05-25T16:35:07Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]Machine started in 1.178s
+[2m2025-05-25T16:35:07Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m]2025/05/25 16:35:07 INFO SSH listening listen_address=[fdaa:16:4003:a7b:2dbb:7d9b:bc04:2]:22
+[2m2025-05-25T16:42:35Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Main child exited normally with code: 0
+[2m2025-05-25T16:42:35Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][32m INFO[0m Starting clean up.
+[2m2025-05-25T16:42:35Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][33m WARN[0m could not unmount /rootfs: EINVAL: Invalid argument
+[2m2025-05-25T16:42:35Z[0m app[e2867d5f615e38] [32msea[0m [[34minfo[0m][  449.525732] reboot: Restarting system
+[2m2025-05-25T16:42:36Z[0m runner[e2867d5f615e38] [32msea[0m [[34minfo[0m]machine exited with exit code 0, not restarting
