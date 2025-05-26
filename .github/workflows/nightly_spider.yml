@@ -4,7 +4,7 @@ name: Nightly Tennis-Court Scraper
 on:
   schedule:
     # 10:05 AM Pacific (17:05 UTC)  →  minute hour dom month dow
-    - cron: '40 17 * * *'
+    - cron: '50 17 * * *'
   workflow_dispatch:
 
 jobs:
