@@ -47,7 +47,7 @@ try:
     key = os.environ['SUPABASE_SERVICE_ROLE_KEY']
     print(f'Using key: {key[:8]}...{key[-4:]} (length: {len(key)})')
     client = create_client(url, key)
-    result = client.table('tennis_courts_fly').select('id').limit(1).execute()
+    result = client.table('tennis_courts').select('id').limit(1).execute()
     print(f'✅ Supabase connection successful - found {len(result.data)} records')
 except Exception as e:
     print(f'❌ Supabase connection failed: {e}')

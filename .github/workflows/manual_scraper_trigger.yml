@@ -1,10 +1,7 @@
-# .github/workflows/nightly_spider.yml
-name: Nightly Tennis-Court Scraper
+# .github/workflows/manual_scraper_trigger.yml
+name: Manually Trigger Fly Scraper VM
 
 on:
-  schedule:
-    # 10:05 AM Pacific (17:05 UTC)  →  minute hour dom month dow
-    - cron: '35 06 * * *'
   workflow_dispatch:
 
 jobs:
@@ -21,9 +18,14 @@ jobs:
       - name: Verify token is present
         run: echo "Has token? ${{ secrets.FLY_API_TOKEN != '' }}"
 
-      # Start the scraper VM, then poll until it stops (15-minute timeout)
-      - name: Run scraper and wait for completion
+      # Set environment variable to use ManualAncSpider and start the machine
+      - name: Run manual scraper and wait for completion
         run: |
+          # Update machine with environment variable to use ManualAncSpider
+          flyctl --access-token "$FLY_API_TOKEN" \
+                 machine update e2867d5f615e38 --app flyscraper \
+                 --env SPIDER_NAME=ManualAncSpider --skip-start
+
           # Start the machine
           flyctl --access-token "$FLY_API_TOKEN" \
                  machine start e2867d5f615e38 --app flyscraper
@@ -38,6 +40,12 @@ jobs:
 
             if [ "$status" = "stopped" ]; then
               echo "Machine completed successfully"
+              
+              # Reset environment variable back to default (AncSpider) for nightly runs
+              flyctl --access-token "$FLY_API_TOKEN" \
+                     machine update e2867d5f615e38 --app flyscraper \
+                     --env SPIDER_NAME=AncSpider --skip-start
+              
               exit 0
             fi
 
@@ -45,4 +53,10 @@ jobs:
           done
 
           echo "Timeout: Machine did not complete within 15 minutes"
-          exit 1
+          
+          # Reset environment variable back to default even on timeout
+          flyctl --access-token "$FLY_API_TOKEN" \
+                 machine update e2867d5f615e38 --app flyscraper \
+                 --env SPIDER_NAME=AncSpider --skip-start
+          
+          exit 1 
